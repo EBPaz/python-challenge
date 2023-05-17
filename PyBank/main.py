@@ -3,8 +3,8 @@ import os
 import csv
 
 # read the CSV file and convert it
-csvpath = os.path.join('C:\\Users\\evapa\\OneDrive\\Desktop\\Data Class Incoming Folder\\UofW-VIRT-DATA-PT-04-2023-U-LOLC\\03-Python\\Homework\\Starter_Code\\PyBank\\Resources\\budget_data.csv')
-textfile = os.path.join('C:\Users\evapa\OneDrive\Desktop\Python\python-challenge\PyBank\analysis\\budget_analysis.txt')
+csvpath = os.path.join('C:\\Users\\evapa\\OneDrive\\Desktop\\Python\\python-challenge\\PyBank\\Resources\\budget_data.csv')
+textfile = os.path.join('C:\\Users\\evapa\\OneDrive\\Desktop\\Python\\python-challenge\PyBank\\Analysis\\budget_analysis.txt')
 
 #set values for the varaibles in the dataset
 total_months = 1
