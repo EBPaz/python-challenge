@@ -26,28 +26,57 @@ with open(csvpath) as vote_file:
         # count the total number of votes
         total_votes = len(list(vote_file))
 
-         # create the list of candidates who received votes
-         x = 0
-         if x = (row[2]):
-            candidate_name == (candidate_name -1)
-            candidate_list.append(x)
-    
-        # determine the percentage of votes each candidate got
-        candidate1 = []
-        candidate2 = []
-        candidate3 = []
+        # create the list of candidates who received votes
+        name1 = []
+        name2 = []
+        name3 = []
+        voter1 = []
+        voter2 = []
+        voter3 = []
 
         if candidate_name == (candidate_name -1):
-            count(candidate_name)
-            sum(candidate_name)
-            candidate1.append(candidate_name)
-            candidate1_votes = 
+           voter_id = candidate_name
+           name1.append(candidate_name)
+           voter1.append (candidate_name[1])
+           print(name1)
+           print(voter1)
+           
+           candidate_name != (candidate_name -1)
+           voter_id = (candidate_name +1) 
+           name2.append(candidate_name)
+           voter2.append (candidate_name[1])
+           print(name2)
+           print(voter2)
 
-        if candidate_name != (candidate_name-1):
-            candidate_name.append(candidate2)
+        else:
+            candidate_name = name3
+            name3.append(candidate_name)
+            voter3.append (candidate_name[1])
+            print(name3)
+            print(voter3)
+           
+         # determine the percentage of votes each candidate got  
+            candidate_1_percent = (len(voter1) / total_votes) * 100
+            candidate_2_percent = (len(voter2) / total_votes) * 100
+            candidate_3_percent = (len(voter3) / total_votes) * 100
+       
+         # determine the total number of votes each candidate got
+            total1 = len(list(voter1))
+            total2 = len(list(voter2))
+            total3 = len(list(voter3))
 
-        elif:
-            candidate_name != (candidate_name -1):
-           candidate_name.append(candidate3)
+        # the winner of the election based on popluar vote 
+            max = 0
+            if total1 > 0:
+                max = total1
 
+            if total2 > total1:
+                max = total2
+
+            if total3 > total2:
+                max = total3
+            
+            winner - once you have max, correlated that to the name column in that file
+            
+            printf'Winner: {}'
         
