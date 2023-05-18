@@ -4,11 +4,13 @@ import csv
 
 # read the CSV file and convert it
 csvpath = os.path.join('C:\\Users\\evapa\\OneDrive\\Desktop\\Python\\python-challenge\\PyPoll\\Resources\election_data.csv')
-textfile = os.path.join('C:\\Users\\evapa\\OneDrive\\Desktop\\Python\\python-challenge\\PyPoll\Analysis')
+textfile = os.path.join('C:\\Users\\evapa\\OneDrive\\Desktop\\Python\\python-challenge\\PyPoll\Analysis\\election_summary.txt')
 
 #set values for the varaibles in the dataset
 total_votes = 0
-candidate_list = []
+votes ={}
+winning_count = 0
+winning_candidate = ""
 
 # Read the csv and convert it into a list of dictionaries
 with open(csvpath) as vote_file:
@@ -19,76 +21,43 @@ with open(csvpath) as vote_file:
 
     # set up a loop to read each row and define it
     for row in csvreader:
-        voter_id = int(vote_file[0])
-        county = str(vote_file[1])
-        candidate_name = str(vote_file[2])
+        voter_id = int(row[0])
+        county = str(row[1])
+        candidate_name = str(row[2])
 
         # count the total number of votes
-        total_votes = len(list(vote_file))
+        total_votes += 1
+    print(total_votes)
+      
+    if candidate_name in votes:
+      votes[candidate_name] = votes[candidate_name]+1
+    else:
+      votes[candidate_name]=0
 
-        # create the list of candidates who received votes
-     #   name1 = []
-      #  name2 = []
-      #  name3 = []
-      #  voter1 = []
-      #  voter2 = []
-      #  voter3 = []
+    print(votes)
 
-      #  if candidate_name == (candidate_name -1):
-      #     voter_id = candidate_name
-      #     name1.append(candidate_name)
-      #     voter1.append (candidate_name[1])
-      #     print(name1)
-      #     print(voter1)
-           
-       #    candidate_name != (candidate_name -1)
-        #   voter_id = (candidate_name +1) 
-        #   name2.append(candidate_name)
-        #   voter2.append (candidate_name[1])
-        #   print(name2)
-         #  print(voter2)
-
-        #else:
-         #   candidate_name = name3
-          #  name3.append(candidate_name)
-          #  voter3.append (candidate_name[1])
-          #  print(name3)
-          #  print(voter3)
-           
-         # determine the percentage of votes each candidate got  
-           # candidate_1_percent = (len(voter1) / total_votes) * 100
-           # candidate_2_percent = (len(voter2) / total_votes) * 100
-           # candidate_3_percent = (len(voter3) / total_votes) * 100
        
-         # determine the total number of votes each candidate got
-           # total1 = len(list(voter1))
-           # total2 = len(list(voter2))
-           # total3 = len(list(voter3))
+    for row in votes:
+        cand_votes = votes.get(row)
+        cand_percentage = cand_votes / total_votes
+        print(cand_percentage)
 
-        # the winner of the election based on popluar vote 
-           # max = 0
-           # if total1 > 0:
-           #     max = total1
+        if cand_votes > winning_count:
+            winning_count = cand_votes
+            winning_candidate = row
+    print(winning_candidate, winning_count)
 
-           # if total2 > total1:
-           #     max = total2
-
-           # if total3 > total2:
-           #     max = total3
-            
-            #winner - once you have max, correlated that to the name column in that file
-            
-            #printf'winner: {}'
     
-#with open(textfile, 'w') as summary:
- #   summary.write(f'Election Results)\n'
-  #               f'-------------------------\n'
-  #               f'Total Votes: {total_votes}\n'
-  #               f'-------------------------\n'
-  #               f'{name1}: {candidate_1_percent:.3f} {(total1)}\n'
-  #               f'{name2}: {candidate_2_percent:.3f} {(total2)}\n'
-  #               f'{name3}: {candidate_3_percent:.3f} {(total3)}\n'
-  #               f'-------------------------\n'
-                # f' Winner: {winner}\n'
-   #              f'-------------------------\n')
-        
+    
+with open(textfile, 'w') as summary:
+  summary.write(f'Election Results)\n'
+               f'-------------------------\n'
+                 f'Total Votes: {total_votes}\n'
+                 f'-------------------------\n'
+                 f'{candidate_name[0]}: {cand_percentage[0]:.3f} {cand_votes[0]}\n'
+                f'{candidate_name[1]}: {cand_percentage[1]:.3f} {cand_votes[1]}\n'
+                f'{candidate_name[2]}: {cand_percentage[2]:.3f} {cand_votes[2]}\n'
+                 f'-------------------------\n'
+                 f' Winner: {winning_candidate}\n'
+                 f'-------------------------\n')
+      

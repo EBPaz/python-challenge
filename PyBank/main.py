@@ -66,7 +66,9 @@ with open(csvpath) as csvfile:
 # export all final statements as a text file
 
 with open(textfile, 'w') as summary:
-    summary.write(f'Total Months: {total_months}\n'
+    summary.write(f'Financial Analysis\n'
+                 f'--------------------\n'
+                 f'Total Months: {total_months}\n'
                  f'Total: ${net_profit_loss:.0f}\n'
                  f'Average Change: ${average_daily_change:.2f}\n'
                  f'Greatest Increase in Profits: {greatest_increase[0]}, {greatest_increase[1]}\n'
