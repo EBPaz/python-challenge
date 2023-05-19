@@ -63,8 +63,8 @@ with open(csvpath) as csvfile:
     print(f'Greatest Increase in Profits: {greatest_increase[0]}, {greatest_increase[1]}')
     print(f'Greatest Decrease in Profits: {greatest_decrease[0]}, {greatest_decrease[1]}')
 
-# export all final statements as a text file
 
+# export all final statements as a text file
 with open(textfile, 'w') as summary:
     summary.write(f'Financial Analysis\n'
                  f'--------------------\n'
